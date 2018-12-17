@@ -1,5 +1,5 @@
 import React from 'react';
-import Filter from './Filter';
+import FilterButton from './FilterButton';
 import * as actions from './actions';
 
 const Filters = () => {
@@ -7,9 +7,9 @@ const Filters = () => {
   return (
     <p>
       Show: {' '}
-      <Filter filter={actions.SHOW_ALL}>All</Filter>
-      <Filter filter={actions.SHOW_ACTIVE}>Active</Filter>
-      <Filter filter={actions.SHOW_COMPLETED}>Completed</Filter>
+      <FilterButton filter={actions.SHOW_ALL}>All</FilterButton>
+      <FilterButton filter={actions.SHOW_ACTIVE}>Active</FilterButton>
+      <FilterButton filter={actions.SHOW_COMPLETED}>Completed</FilterButton>
     </p>
   );
 }
