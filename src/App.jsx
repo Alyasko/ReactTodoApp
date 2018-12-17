@@ -4,27 +4,27 @@ import { addTodo, removeTodo, checkTodo } from './actions';
 import { connect } from 'react-redux';
 import Filter from './Filter';
 import TodoList from './TodoList';
+import AddTodo from './AddTodo';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.deleteTodo.bind(this);
-    this.deleteTodo.bind(this);
+    this.deleteTodoHandler.bind(this);
+    this.deleteTodoHandler.bind(this);
   }
 
-  addTodo() {
-    if (this.input.value !== '') {
-      this.props.dispatch(addTodo(this.props.todos, this.input.value));
-      this.input.value = '';
+  addTodoHandler(text) {
+    if (text !== '') {
+      this.props.dispatch(addTodo(this.props.todos, text));
     }
   }
 
-  deleteTodo(id) {
+  deleteTodoHandler(id) {
     this.props.dispatch(removeTodo(id));
   }
 
-  toggleTodo(id) {
+  toggleTodoHandler(id) {
     this.props.dispatch(checkTodo(id));
   }
 
@@ -45,12 +45,11 @@ class App extends Component {
 
     return (
       <div>
-        <input ref={node => { this.input = node }} />
-        <button onClick={this.addTodo.bind(this)}>Add</button>
+        <AddTodo onAddTodo={(text) => this.addTodoHandler(text)} />
         <TodoList 
           todos={visibleTodos}
-          onTodoDeleted={(id) => this.deleteTodo(id)}
-          onTodoToggled={(id) => this.toggleTodo(id)}
+          onTodoDeleted={(id) => this.deleteTodoHandler(id)}
+          onTodoToggled={(id) => this.toggleTodoHandler(id)}
         />
         <p>
           Show: {' '}
