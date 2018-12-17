@@ -1,17 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { addTodo } from './actions';
+import { connect } from 'react-redux';
 
-const AddTodo = ({
-  onAddTodo
-}) => {
-  let input;
+class AddTodo extends Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div>
-      <input ref={node => { input = node }} />
-      <button onClick={() => onAddTodo(input.value)}>Add</button>
-    </div>
-  )
-};
+    this.buttonClickHandler.bind(this);
+  }
 
-export default AddTodo;
+  buttonClickHandler(text) {
+    if (text !== '') {
+      this.props.dispatch(addTodo(this.props.todos, text));
+      this.input.value = '';
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <input ref={node => { this.input = node }} />
+        <button onClick={() => this.buttonClickHandler(this.input.value)}>Add</button>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state) => ({
+  todos: state.todos
+});
+
+export default connect(mapStateToProps)(AddTodo);
 
