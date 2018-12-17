@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import * as actions from './actions';
 import { addTodo, removeTodo, checkTodo } from './actions';
 import { connect } from 'react-redux';
-import Filter from './Filter';
 import TodoList from './TodoList';
 import AddTodo from './AddTodo';
+import Filters from './Filters';
 
 class App extends Component {
   constructor(props) {
@@ -51,12 +51,7 @@ class App extends Component {
           onTodoDeleted={(id) => this.deleteTodoHandler(id)}
           onTodoToggled={(id) => this.toggleTodoHandler(id)}
         />
-        <p>
-          Show: {' '}
-          <Filter filter={actions.SHOW_ALL}>All</Filter>
-          <Filter filter={actions.SHOW_ACTIVE}>Active</Filter>
-          <Filter filter={actions.SHOW_COMPLETED}>Completed</Filter>
-        </p>
+        <Filters />
       </div>
     )
   }
