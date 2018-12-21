@@ -1,15 +1,41 @@
 import { ADD_TODO, REMOVE_TODO, CHECK_TODO } from './action-types';
 
-export const addTodo = (list, text) => {
-  let ids = list.map(x => x.id);
+export const todosList = [
+  {
+    id: 0,
+    text: "Oranges",
+    checked: false
+  },
+  {
+    id: 1,
+    text: "Bread",
+    checked: false
+  },
+  {
+    id: 2,
+    text: "Milk",
+    checked: false
+  },
+  {
+    id: 3,
+    text: "Oil",
+    checked: false
+  },
+  {
+    id: 4,
+    text: "Apples",
+    checked: false
+  }
+];
+
+export const addTodo = (text) => {
+  let ids = todosList.map(x => x.id);
   let id = 0;
   if(ids.length === 0) {
     id = 0;
   } else {
     id = Math.max(...ids) + 1;
   }
-
-  console.log({ids, id});
 
   return ({
     type: ADD_TODO,

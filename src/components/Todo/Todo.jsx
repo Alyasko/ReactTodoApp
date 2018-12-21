@@ -6,12 +6,9 @@ const Todo = ({
   onTodoToggled,
   onTodoDeleted
 }) => {
-  let isChecked = checked;
-
   return (
     <li>
-      <input type="checkbox" checked={isChecked} onChange={(e) => {
-        isChecked = !e.currentTarget.checked;
+      <input type="checkbox" checked={checked} onChange={(e) => {
         onTodoToggled();
       }} />
       <span style={{ textDecoration: checked ? 'line-through' : 'none' }}>{text}</span>

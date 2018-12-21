@@ -1,32 +1,5 @@
 import { ADD_TODO, CHECK_TODO, REMOVE_TODO } from './action-types';
-
-const initialState = [
-  {
-    id: 0,
-    text: "Oranges",
-    checked: false
-  },
-  {
-    id: 1,
-    text: "Bread",
-    checked: false
-  },
-  {
-    id: 2,
-    text: "Milk",
-    checked: false
-  },
-  {
-    id: 3,
-    text: "Oil",
-    checked: false
-  },
-  {
-    id: 4,
-    text: "Apples",
-    checked: false
-  }
-];
+import { todosList } from './actions';
 
 const todo = (state, action) => {
   switch (action.type) {
@@ -51,7 +24,7 @@ const todo = (state, action) => {
   }
 }
 
-const todos = (state = initialState, action) => {
+const todos = (state = todosList, action) => {
   switch (action.type) {
     case ADD_TODO: {
       return [
