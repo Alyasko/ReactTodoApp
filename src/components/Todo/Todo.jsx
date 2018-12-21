@@ -8,10 +8,7 @@ const Todo = ({
 }) => {
   return (
     <li>
-      <input type="checkbox" checked={checked} onChange={(e) => {
-        onTodoToggled();
-      }} />
-      <span style={{ textDecoration: checked ? 'line-through' : 'none' }}>{text}</span>
+      <span style={{ textDecoration: checked ? 'line-through' : 'none' }} onClick={onTodoToggled}>{text}</span>
       <button style={{ marginLeft: 10 }} onClick={onTodoDeleted}>X</button>
     </li>
   )
