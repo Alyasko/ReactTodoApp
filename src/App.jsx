@@ -1,7 +1,7 @@
 import React from 'react';
-import AddTodo from './AddTodo';
-import Filters from './Filters';
-import VisibleTodoList from './VisibleTodoList';
+import AddTodo from './containers/Todos/AddTodo';
+import Filters from './components/Filters/Filters';
+import VisibleTodoList from './containers/Todos/VisibleTodoList';
 
 const App = () => (
   <div>

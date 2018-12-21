@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { filterTodos } from './actions';
-import Button from './Button';
+import Button from '../../components/Button/Button';
 
 const mapStateToProps = (state, ownProps) => ({
   active: ownProps.filter === state.visibilityFilter

@@ -6,7 +6,7 @@ const Todo = ({
   onTodoToggled,
   onTodoDeleted
 }) => {
-  let isChecked;
+  let isChecked = checked;
 
   return (
     <li>

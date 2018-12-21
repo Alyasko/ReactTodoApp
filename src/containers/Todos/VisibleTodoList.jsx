@@ -1,15 +1,15 @@
-import TodoList from './TodoList';
+import TodoList from '../../components/TodoList/TodoList';
 import { connect } from 'react-redux';
-import * as actions from './actions';
+import * as filters from '../FilterButton/filters';
 import { removeTodo, checkTodo } from './actions';
 
 const runFilter = (todos, filter) => {
   switch (filter) {
-    case actions.SHOW_ALL:
+    case filters.SHOW_ALL:
       return todos;
-    case actions.SHOW_ACTIVE:
+    case filters.SHOW_ACTIVE:
       return todos.filter(x => !x.checked);
-    case actions.SHOW_COMPLETED:
+    case filters.SHOW_COMPLETED:
       return todos.filter(x => x.checked);
     default:
       throw new Error("Incorrect filter.");

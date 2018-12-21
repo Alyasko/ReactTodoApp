@@ -1,4 +1,4 @@
-import * as actions from './actions';
+import { ADD_TODO, CHECK_TODO, REMOVE_TODO } from './action-types';
 
 const initialState = [
   {
@@ -30,13 +30,13 @@ const initialState = [
 
 const todo = (state, action) => {
   switch (action.type) {
-    case actions.ADD_TODO: {
+    case ADD_TODO: {
       return {
         id: action.id,
         text: action.text
       };
     }
-    case actions.CHECK_TODO: {
+    case CHECK_TODO: {
       if (state.id !== action.id) {
         return state;
       }
@@ -51,22 +51,22 @@ const todo = (state, action) => {
   }
 }
 
-export const todos = (state = initialState, action) => {
+const todos = (state = initialState, action) => {
   switch (action.type) {
-    case actions.ADD_TODO: {
+    case ADD_TODO: {
       return [
         ...state,
         todo(undefined, action)
       ];
     }
-    case actions.REMOVE_TODO: {
+    case REMOVE_TODO: {
       let id = state.findIndex(x => x.id === action.id);
       return [
         ...state.slice(0, id),
         ...state.slice(id + 1)
       ];
     }
-    case actions.CHECK_TODO: {
+    case CHECK_TODO: {
       return state.map(x => todo(x, action));
     }
     default:
@@ -74,12 +74,4 @@ export const todos = (state = initialState, action) => {
   }
 };
 
-export const visibilityFilter = (state = actions.SHOW_ALL, action) => {
-  switch(action.type) {
-    case actions.FILTER: {
-      return action.filter;
-    }
-    default:
-      return state;
-  }
-};
+export default todos;
