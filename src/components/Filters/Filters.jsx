@@ -2,6 +2,8 @@ import React from 'react';
 import FilterButton from '../../containers/FilterButton/FilterButton';
 import * as filters from '../../containers/FilterButton/filters';
 
+import './filter.scss';
+
 const Filters = () => {
 
   return (

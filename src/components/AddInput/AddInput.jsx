@@ -1,16 +1,20 @@
 import React from 'react';
 
+import './add-input.scss';
+
 const AddInput = ({
   onAdd
 }) => {
   let input;
 
   return (
-    <div>
+    <div id="add-input-component">
       <input ref={node => { input = node }} />
       <button onClick={() => {
-        onAdd(input.value);
-        input.value = '';
+        if (input.value !== '') {
+          onAdd(input.value);
+          input.value = '';
+        }
       }}>Add</button>
     </div>
   )

@@ -1,0 +1,19 @@
+
+li {
+  width: 100%;
+  display: flex;
+
+  .flex-fill {
+    flex: auto;
+  }
+
+  button {
+    flex-basis: 10px;
+    margin-left: 0px;
+  }
+
+  span {
+    flex: 1;
+    padding: 3px 10px 2px 10px;
+  }
+}
