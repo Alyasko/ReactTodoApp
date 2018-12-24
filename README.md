@@ -1,5 +1,6 @@
+## React Todo App
+
 This is an application for managing your todos. It is based on React and Redux frameworks.
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ![alt text](https://raw.githubusercontent.com/Alyasko/ReactTodoApp/master/imgs/sc-2.png)
 
