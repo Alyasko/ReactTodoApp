@@ -1,5 +1,5 @@
 import { ADD_TODO, CHECK_TODO, REMOVE_TODO } from './action-types';
-import { todosList } from './actions';
+import { initialState } from './actions';
 
 const todo = (state, action) => {
   switch (action.type) {
@@ -24,7 +24,7 @@ const todo = (state, action) => {
   }
 }
 
-const todos = (state = todosList, action) => {
+const todos = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO: {
       return [

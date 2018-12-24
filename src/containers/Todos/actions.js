@@ -1,6 +1,6 @@
 import { ADD_TODO, REMOVE_TODO, CHECK_TODO } from './action-types';
 
-export const todosList = [
+export const initialState = [
   {
     id: 0,
     text: "Oranges",
@@ -25,17 +25,30 @@ export const todosList = [
     id: 4,
     text: "Apples",
     checked: false
+  },
+  {
+    id: 5,
+    text: "Nuts",
+    checked: false
+  },
+  {
+    id: 6,
+    text: "Coffee",
+    checked: false
   }
 ];
 
+let id = initialState[initialState.length - 1];
+
 export const addTodo = (text) => {
-  let ids = todosList.map(x => x.id);
-  let id = 0;
-  if(ids.length === 0) {
-    id = 0;
-  } else {
-    id = Math.max(...ids) + 1;
-  }
+  // let ids = initialState.map(x => x.id);
+  // let id = 0;
+  // if(ids.length === 0) {
+  //   id = 0;
+  // } else {
+  //   id = Math.max(...ids) + 1;
+  // }
+  id = id + 1;
 
   return ({
     type: ADD_TODO,

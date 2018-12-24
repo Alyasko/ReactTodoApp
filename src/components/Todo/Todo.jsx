@@ -9,10 +9,13 @@ const Todo = ({
   onTodoDeleted
 }) => {
   return (
-    <li>
-      <span style={{ textDecoration: checked ? 'line-through' : 'none' }} onClick={onTodoToggled}>{text}</span>
+    <li className={"todo-item " + (checked ? 'checked': '')} onClick={onTodoToggled}>
+      <span style={{ textDecoration: checked ? 'line-through' : 'none' }}>{text}</span>
       <div className="flex-fill"></div>
-      <button onClick={onTodoDeleted}>X</button>
+      <a href="/" className="delete-todo" onClick={(e) => {
+        onTodoDeleted();
+        e.preventDefault();
+      }}><i className="fas fa-trash"></i></a>
     </li>
   )
 };
